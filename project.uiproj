@@ -1,0 +1,6 @@
+{
+  "Name": "Practice 2_Dictionaries",
+  "ProjectType": "Process",
+  "Description": "Process to print the number of victories for each winner based on the input list.",
+  "MainFile": "Practice2_Dictionaries_CompetitorsSummary.xaml"
+}

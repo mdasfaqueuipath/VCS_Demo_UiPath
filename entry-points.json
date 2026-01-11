@@ -1,0 +1,15 @@
+{
+  "$schema": "https://cloud.uipath.com/draft/2024-12/entry-point",
+  "entryPoints": [
+    {
+      "filePath": "Practice2_Dictionaries_CompetitorsSummary.xaml",
+      "uniqueId": "38940319-d6b9-4934-97f0-e1399225d631",
+      "type": "process"
+    },
+    {
+      "filePath": "Practice3_Dictionaries_CompetitorsSummary.xaml",
+      "uniqueId": "8905168e-2d48-4600-a0e8-0426eacaae9c",
+      "type": "process"
+    }
+  ]
+}
