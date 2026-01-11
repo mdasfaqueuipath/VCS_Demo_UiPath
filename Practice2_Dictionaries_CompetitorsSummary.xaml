@@ -73,9 +73,10 @@
       <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
       <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
       <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Print the number of victories for each winner based on the input list" DisplayName="Competitors summary sequence" sap:VirtualizedContainerService.HintSize="1087,1638" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Print the number of victories for each winner based on the input list" DisplayName="Competitors summary sequence" sap:VirtualizedContainerService.HintSize="987,1693" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="scg:Dictionary(x:Int32, x:String)" sap2010:Annotation.AnnotationText="The input data, the number of victories for each competitor" Name="dict_Winners" />
       <Variable x:TypeArguments="scg:Dictionary(x:String, x:Int32)" sap2010:Annotation.AnnotationText="Final list if winners and number of victories" Default="[new Dictionary(of String, Int32)]" Name="dict_WinnerCounts" />
@@ -86,17 +87,24 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Assign DisplayName="Assign - Winners" sap:VirtualizedContainerService.HintSize="486,175" sap2010:WorkflowViewState.IdRef="Assign_2">
-      <Assign.To>
-        <OutArgument x:TypeArguments="scg:Dictionary(x:Int32, x:String)">[dict_Winners]</OutArgument>
-      </Assign.To>
-      <Assign.Value>
-        <InArgument x:TypeArguments="scg:Dictionary(x:Int32, x:String)" xml:space="preserve">[New Dictionary(Of Int32,String) From {{2006,"Oscar Pereiro"},{2007,"Alberto Contador"}, {2008, "Carlos Sastre"}, {2009,"Alberto Contador"}, {2010, "Andy Schleck"},
+    <Sequence DisplayName="Sequence - Tour de France winners" sap:VirtualizedContainerService.HintSize="452,258" sap2010:WorkflowViewState.IdRef="Sequence_4">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <Assign DisplayName="Assign - Winners" sap:VirtualizedContainerService.HintSize="416,166" sap2010:WorkflowViewState.IdRef="Assign_2">
+        <Assign.To>
+          <OutArgument x:TypeArguments="scg:Dictionary(x:Int32, x:String)">[dict_Winners]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="scg:Dictionary(x:Int32, x:String)" xml:space="preserve">[New Dictionary(Of Int32,String) From {{2006,"Oscar Pereiro"},{2007,"Alberto Contador"}, {2008, "Carlos Sastre"}, {2009,"Alberto Contador"}, {2010, "Andy Schleck"},
 {2011, "Cadel Evans"}, {2012,"Bradley Wiggins"}, {2013,"Chris Froome"}, {2014,"Vincenzo Nibali"},{2015,"Chris Froome"},{2016,"Chris Froome"},{2017,"Chris Froome"},
 {2018,"Geraint Thomas"}}]</InArgument>
-      </Assign.Value>
-    </Assign>
-    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="Go through the users and count the number of victories" DisplayName="Iterate through winners" sap:VirtualizedContainerService.HintSize="486,745" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[dict_Winners.Values]">
+        </Assign.Value>
+      </Assign>
+    </Sequence>
+    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="Go through the users and count the number of victories" DisplayName="Iterate through winners" sap:VirtualizedContainerService.HintSize="452,745" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[dict_Winners.Values]">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="x:String">
           <ActivityAction.Argument>
@@ -148,8 +156,8 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:ForEach>
-    <WriteLine DisplayName="Write top line" sap:VirtualizedContainerService.HintSize="486,123" sap2010:WorkflowViewState.IdRef="WriteLine_5" Text="And the winners are: " />
-    <ui:ForEach x:TypeArguments="scg:KeyValuePair(x:String, x:Int32)" CurrentIndex="{x:Null}" DisplayName="Print winners" sap:VirtualizedContainerService.HintSize="486,541" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[dict_WinnerCounts]">
+    <WriteLine DisplayName="Write top line" sap:VirtualizedContainerService.HintSize="452,123" sap2010:WorkflowViewState.IdRef="WriteLine_5" Text="And the winners are: " />
+    <ui:ForEach x:TypeArguments="scg:KeyValuePair(x:String, x:Int32)" CurrentIndex="{x:Null}" DisplayName="Print winners" sap:VirtualizedContainerService.HintSize="452,513" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[dict_WinnerCounts]">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="scg:KeyValuePair(x:String, x:Int32)">
           <ActivityAction.Argument>
